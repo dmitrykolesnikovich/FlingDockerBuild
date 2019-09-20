@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    fling-build-base:
+        build: './build_base' 
+        container_name: fling_build_base
+
+    build_gcc:
+        build: './build_gcc' 
+        depends_on: 
+            - fling-build-base
+    build_clang:
+        build: './build_clang' 
+        depends_on: 
+            - fling-build-base
+    build_cppcheck:
+        build: './build_cppcheck' 
+        depends_on: 
+            - fling-build-base

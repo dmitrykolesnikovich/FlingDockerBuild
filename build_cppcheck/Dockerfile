@@ -1,0 +1,13 @@
+FROM fling_build_base
+LABEL maintainer="benjamin.hoffman.dev@gmail.com"
+
+# Set compiler to GCC
+RUN export CC=/usr/local/bin/gcc
+RUN export CXX=/usr/local/bin/g++
+
+# Put myself in the right directory
+WORKDIR /home/Fling/FlingEngine/
+RUN ls -l
+
+# Run unit tests
+CMD ["./run-cpp-check.sh"]
