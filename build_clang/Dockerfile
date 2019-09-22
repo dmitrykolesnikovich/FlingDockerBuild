@@ -8,6 +8,8 @@ RUN export CXX=/usr/local/bin/clang++
 # Verifiy which compilers we are using 
 RUN which clang
 RUN which clang++
+RUN clang --version
+RUN clang++ --version
 
 RUN cmake . -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -B ./build
 WORKDIR /home/Fling/FlingEngine/build
@@ -16,11 +18,5 @@ RUN ls -l
 # Build everything
 RUN make
 
-
-# Copy assets and config to the tests folder
-RUN cp -r ../Assets ./FlingTests/bin
-RUN cp -r ../Config ./FlingTests/bin
-WORKDIR /home/Fling/FlingEngine/build/FlingTests/bin/
-
 # Run unit tests
-CMD ["./FlingTests"]
+#CMD ["./FlingTests/bin/FlingTests"]
