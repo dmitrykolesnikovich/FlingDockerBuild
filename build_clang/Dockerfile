@@ -16,7 +16,7 @@ WORKDIR /home/Fling/FlingEngine/build
 RUN ls -l
 
 # Build everything
-CMD["make"]
+RUN make
 
 # Run unit tests
 #CMD ["./FlingTests/bin/FlingTests"]
