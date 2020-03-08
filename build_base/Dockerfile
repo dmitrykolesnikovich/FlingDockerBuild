@@ -1,7 +1,6 @@
 FROM ubuntu
 LABEL maintainer="benjamin.hoffman.dev@gmail.com"
 
-# TODO Args for what branch/ commit tag to check out
 ARG DEV_BRANCH=staging
 
 # Install all programs that are necessary
@@ -41,6 +40,8 @@ RUN git clone https://github.com/flingengine/FlingEngine.git
 WORKDIR /home/Fling/FlingEngine
 RUN git fetch --all --tags --prune -q
 RUN git pull
+
+# Checkout the branch specified if we wanna
 RUN git checkout ${DEV_BRANCH}
 RUN git branch
 

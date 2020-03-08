@@ -11,6 +11,10 @@ RUN which clang++
 RUN clang --version
 RUN clang++ --version
 
+# Checkout the branch specified if we wanna
+RUN git checkout ${DEV_BRANCH}
+RUN git branch
+
 RUN cmake . -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -B ./build
 WORKDIR /home/Fling/FlingEngine/build
 RUN ls -l

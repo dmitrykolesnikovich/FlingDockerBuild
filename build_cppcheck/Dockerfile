@@ -8,6 +8,10 @@ RUN apt-get install -y cppcheck
 RUN export CC=/usr/local/bin/gcc
 RUN export CXX=/usr/local/bin/g++
 
+# Checkout the branch specified if we wanna
+RUN git checkout ${DEV_BRANCH}
+RUN git branch
+
 # Put myself in the right directory
 WORKDIR /home/Fling/FlingEngine/StaticAnalysis
 RUN ls -l

@@ -11,6 +11,10 @@ RUN which g++
 RUN gcc --version
 RUN g++ --version
 
+# Checkout the branch specified if we wanna
+RUN git checkout ${DEV_BRANCH}
+RUN git branch
+
 RUN cmake . -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -B ./build
 WORKDIR /home/Fling/FlingEngine/build
 RUN ls -l
