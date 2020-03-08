@@ -1,14 +1,15 @@
 FROM ubuntu
 LABEL maintainer="benjamin.hoffman.dev@gmail.com"
 
+# TODO Args for what branch/ commit tag to check out
+ARG DEV_BRANCH=staging
+
 # Install all programs that are necessary
 RUN apt-get update
 RUN apt-get install tar -y
 RUN apt-get install wget -y
 RUN apt-get install build-essential -y
 RUN apt-get install clang gcc g++ git -y
-RUN apt-get install -y vim
-RUN apt-get install -y cppcheck
 
 # Install Cmake
 RUN wget -qO- "https://cmake.org/files/v3.13/cmake-3.13.4-Linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local
@@ -40,8 +41,9 @@ RUN git clone https://github.com/flingengine/FlingEngine.git
 WORKDIR /home/Fling/FlingEngine
 RUN git fetch --all --tags --prune -q
 RUN git pull
+RUN git checkout ${DEV_BRANCH}
+RUN git branch
 
-RUN git submodule update --init --recursive
-RUN mkdir build -p
+RUN ./Init.sh
 
 WORKDIR /home/Fling/FlingEngine
