@@ -21,7 +21,7 @@ RUN apt-get install -y libglfw3-dev
 RUN apt-get install -y xorg-dev
 
 ## Vulkan SDK
-RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.1.92.1/linux/vulkansdk-linux-x86_64-1.1.92.1.tar.gz?u=true && \
+RUN wget -O VulkanSDK.tar.gz https://sdk.lunarg.com/sdk/download/1.1.92.1/linux/vulkansdk-linux-x86_64-1.1.92.1.tar.gz?u=true?Human=true && \
     mkdir VulkanSDK && \
     cd VulkanSDK && \
     tar xvf /VulkanSDK.tar.gz
